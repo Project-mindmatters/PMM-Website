@@ -4,6 +4,8 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "routes": [
+    { "src": "/pages/index.html", "dest": "/" },
+    { "src": "/pages/(.*)\\.html", "dest": "/$1.html" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ],

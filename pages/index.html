@@ -164,6 +164,30 @@
     </div>
 
     <script>
+        // Navigation fix to ensure proper redirection
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fix navigation links to ensure they work properly
+            document.querySelectorAll('a').forEach(link => {
+                // Skip external links or links with absolute URLs
+                if (link.href.startsWith('http') && !link.href.includes(window.location.hostname)) {
+                    return;
+                }
+                
+                // Handle index.html links
+                if (link.href.endsWith('/index.html') || link.href === window.location.origin + '/') {
+                    link.href = '/';
+                }
+            });
+            
+            // Fix for back button navigation
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    // Page was loaded from cache (back button)
+                    window.location.reload();
+                }
+            });
+        });
+        
         // Wait for the DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Slideshow

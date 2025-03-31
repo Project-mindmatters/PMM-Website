@@ -33,24 +33,31 @@ function fixHtmlLinks(filePath) {
     
     // For pages in the pages directory, update navigation links
     if (filePath.includes('public/pages/')) {
-      // First, handle relative links without path (like "about.html")
-      content = content.replace(/href="([^\/\.]+)\.html"/g, 'href="/$1.html"');
-      
-      // Handle index.html specifically
+      // First, handle index.html specifically
       content = content.replace(/href="index\.html"/g, 'href="/"');
       
-      // Fix links to other pages in the same directory (don't convert to clean URLs)
-      content = content.replace(/href="pages\/([^"]+)\.html"/g, 'href="/$1.html"');
+      // Handle relative links without path (like "about.html") - make sure to use the .html extension
+      content = content.replace(/href="([^\/\.]+)\.html"/g, (match, pageName) => {
+        return `href="/${pageName}.html"`;
+      });
+      
+      // Fix links to other pages in the same directory
+      content = content.replace(/href="pages\/([^"]+)\.html"/g, (match, pageName) => {
+        return `href="/${pageName}.html"`;
+      });
       
       // Handle absolute paths to pages directory
-      content = content.replace(/href="\/pages\/([^"]+)\.html"/g, 'href="/$1.html"');
+      content = content.replace(/href="\/pages\/([^"]+)\.html"/g, (match, pageName) => {
+        return `href="/${pageName}.html"`;
+      });
       
       // Fix active link class for current page
       const pageName = path.basename(filePath, '.html');
       if (pageName === 'index') {
-        content = content.replace('href="/"', 'href="/" class="active"');
+        content = content.replace(/href="\/"([^>]*?)>/g, 'href="/" class="active"$1>');
       } else {
-        content = content.replace(`href="/${pageName}.html"`, `href="/${pageName}.html" class="active"`);
+        content = content.replace(new RegExp(`href="/${pageName}.html"([^>]*?)>`, 'g'), 
+                                 `href="/${pageName}.html" class="active"$1>`);
       }
     }
     
@@ -250,13 +257,13 @@ function createSiteMap() {
 // Function to create a custom 404 page
 function create404Page() {
   const pages = [
-    { path: '/pages/index.html', name: 'Home' },
-    { path: '/pages/about.html', name: 'About Us' },
-    { path: '/pages/blog.html', name: 'Blog' },
-    { path: '/pages/contact.html', name: 'Contact' },
-    { path: '/pages/events.html', name: 'Events' },
-    { path: '/pages/team.html', name: 'Our Team' },
-    { path: '/pages/testimonials.html', name: 'Testimonials' }
+    { path: '/', name: 'Home' },
+    { path: '/about.html', name: 'About Us' },
+    { path: '/blog.html', name: 'Blog' },
+    { path: '/contact.html', name: 'Contact' },
+    { path: '/events.html', name: 'Events' },
+    { path: '/team.html', name: 'Our Team' },
+    { path: '/testimonials.html', name: 'Testimonials' }
   ];
   
   let html404 = `
@@ -349,7 +356,7 @@ function create404Page() {
       
       if (seconds <= 0) {
         clearInterval(interval);
-        window.location.href = '/pages/index.html';
+        window.location.href = '/';
       }
     }, 1000);
   </script>
