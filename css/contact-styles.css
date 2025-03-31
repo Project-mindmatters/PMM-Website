@@ -68,6 +68,10 @@
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 .contact-info-card.appear {
@@ -103,6 +107,12 @@
 .contact-info-card p {
     color: #666;
     line-height: 1.6;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 /* Contact Form and Map Section */
