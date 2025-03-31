@@ -4,34 +4,29 @@
   "cleanUrls": false,
   "trailingSlash": false,
   "routes": [
+    { "src": "/", "dest": "/pages/index.html" },
+    { "src": "/index", "dest": "/pages/index.html" },
+    { "src": "/index.html", "dest": "/pages/index.html" },
+    { "src": "/about", "dest": "/pages/about.html" },
+    { "src": "/about.html", "dest": "/pages/about.html" },
+    { "src": "/blog", "dest": "/pages/blog.html" },
+    { "src": "/blog.html", "dest": "/pages/blog.html" },
+    { "src": "/contact", "dest": "/pages/contact.html" },
+    { "src": "/contact.html", "dest": "/pages/contact.html" },
+    { "src": "/events", "dest": "/pages/events.html" },
+    { "src": "/events.html", "dest": "/pages/events.html" },
+    { "src": "/team", "dest": "/pages/team.html" },
+    { "src": "/team.html", "dest": "/pages/team.html" },
+    { "src": "/testimonials", "dest": "/pages/testimonials.html" },
+    { "src": "/testimonials.html", "dest": "/pages/testimonials.html" },
     { "src": "/pages/index.html", "dest": "/" },
     { "src": "/pages/(.*)\\.html", "dest": "/$1.html" },
+    { 
+      "src": "/(.*)", 
+      "headers": { "cache-control": "public, max-age=0, must-revalidate" },
+      "continue": true
+    },
     { "handle": "filesystem" },
     { "src": "/(.*)", "status": 404, "dest": "/404.html" }
-  ],
-  "rewrites": [
-    { "source": "/", "destination": "/pages/index.html" },
-    { "source": "/index", "destination": "/pages/index.html" },
-    { "source": "/index.html", "destination": "/pages/index.html" },
-    { "source": "/about", "destination": "/pages/about.html" },
-    { "source": "/about.html", "destination": "/pages/about.html" },
-    { "source": "/blog", "destination": "/pages/blog.html" },
-    { "source": "/blog.html", "destination": "/pages/blog.html" },
-    { "source": "/contact", "destination": "/pages/contact.html" },
-    { "source": "/contact.html", "destination": "/pages/contact.html" },
-    { "source": "/events", "destination": "/pages/events.html" },
-    { "source": "/events.html", "destination": "/pages/events.html" },
-    { "source": "/team", "destination": "/pages/team.html" },
-    { "source": "/team.html", "destination": "/pages/team.html" },
-    { "source": "/testimonials", "destination": "/pages/testimonials.html" },
-    { "source": "/testimonials.html", "destination": "/pages/testimonials.html" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
-      ]
-    }
   ]
 } 
