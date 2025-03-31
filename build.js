@@ -247,6 +247,120 @@ function createSiteMap() {
   console.log('Created site map at /sitemap.html');
 }
 
+// Function to create a custom 404 page
+function create404Page() {
+  const pages = [
+    { path: '/pages/index.html', name: 'Home' },
+    { path: '/pages/about.html', name: 'About Us' },
+    { path: '/pages/blog.html', name: 'Blog' },
+    { path: '/pages/contact.html', name: 'Contact' },
+    { path: '/pages/events.html', name: 'Events' },
+    { path: '/pages/team.html', name: 'Our Team' },
+    { path: '/pages/testimonials.html', name: 'Testimonials' }
+  ];
+  
+  let html404 = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Not Found - Project Mind Matters</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 50px;
+    }
+    h1 {
+      color: #5dcb85;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .error-icon {
+      font-size: 5rem;
+      color: #5dcb85;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    .links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .link-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #5dcb85;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    .link-btn:hover {
+      background-color: #3ca366;
+      transform: translateY(-3px);
+    }
+    .countdown {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 30px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-icon"><i class="fas fa-map-signs"></i></div>
+    <h1>Page Not Found</h1>
+    <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <p>You will be redirected to the home page in <span id="countdown">10</span> seconds.</p>
+    
+    <div class="links-container">
+      ${pages.map(page => `<a href="${page.path}" class="link-btn">${page.name}</a>`).join('\n      ')}
+    </div>
+  </div>
+
+  <script>
+    // Countdown timer
+    let seconds = 10;
+    const countdownEl = document.getElementById('countdown');
+    
+    const interval = setInterval(() => {
+      seconds--;
+      countdownEl.textContent = seconds;
+      
+      if (seconds <= 0) {
+        clearInterval(interval);
+        window.location.href = '/pages/index.html';
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
+  `;
+  
+  fs.writeFileSync(path.join('public', '404.html'), html404);
+  console.log('Created custom 404 page at /404.html');
+}
+
 // Create public directory if it doesn't exist
 if (!fs.existsSync('public')) {
   fs.mkdirSync('public', { recursive: true });
@@ -275,117 +389,9 @@ fs.mkdirSync(path.join('public', 'pages'), { recursive: true });
 fs.writeFileSync(path.join('public', 'pages', 'index.html'), pagesRedirect);
 console.log('Created redirect for /pages path');
 
-// Create a special 404 page that redirects to home
-const notFoundPage = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Not Found - Project Mind Matters</title>
-  <meta http-equiv="refresh" content="5;url=/" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      padding: 50px 20px;
-      background-color: #f8f9fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    h1 {
-      color: #9c27b0;
-      margin-bottom: 20px;
-      font-size: 36px;
-    }
-    p {
-      margin-bottom: 20px;
-      font-size: 18px;
-    }
-    a {
-      color: #9c27b0;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .error-code {
-      display: inline-block;
-      background-color: #f1e5f9;
-      color: #9c27b0;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-bottom: 30px;
-    }
-    .navigation {
-      margin-top: 40px;
-      padding: 20px;
-      border-top: 1px solid #eee;
-    }
-    .navigation a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 8px 16px;
-      background-color: #9c27b0;
-      color: white;
-      border-radius: 4px;
-      transition: background-color 0.3s;
-    }
-    .navigation a:hover {
-      background-color: #7b1fa2;
-      text-decoration: none;
-    }
-    .countdown {
-      font-size: 16px;
-      color: #666;
-      margin-top: 20px;
-    }
-  </style>
-  <script>
-    // Countdown timer
-    window.onload = function() {
-      let seconds = 5;
-      const countdownElement = document.getElementById('countdown');
-      
-      const interval = setInterval(function() {
-        seconds--;
-        countdownElement.textContent = seconds;
-        
-        if (seconds <= 0) {
-          clearInterval(interval);
-        }
-      }, 1000);
-    };
-  </script>
-</head>
-<body>
-  <div class="container">
-    <span class="error-code">404</span>
-    <h1>Page Not Found</h1>
-    <p>Sorry, the page you are looking for does not exist or has been moved.</p>
-    <p>You will be redirected to the homepage in <span id="countdown">5</span> seconds.</p>
-    
-    <div class="navigation">
-      <a href="/">Home</a>
-      <a href="/about.html">About Us</a>
-      <a href="/blog.html">Blog</a>
-      <a href="/sitemap.html">Site Map</a>
-    </div>
-  </div>
-</body>
-</html>
-`;
-fs.writeFileSync(path.join('public', '404.html'), notFoundPage);
-console.log('Created custom 404 page');
-
-// Create site map
+// Create site map and 404 page
 createSiteMap();
+create404Page();
 
 // Copy directories to public
 const dirsToCopy = ['pages', 'css', 'images'];

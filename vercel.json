@@ -3,8 +3,14 @@
   "outputDirectory": "public",
   "cleanUrls": false,
   "trailingSlash": false,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/pages/index.html" },
+    { "source": "/index", "destination": "/pages/index.html" },
+    { "source": "/index.html", "destination": "/pages/index.html" },
     { "source": "/about", "destination": "/pages/about.html" },
     { "source": "/about.html", "destination": "/pages/about.html" },
     { "source": "/blog", "destination": "/pages/blog.html" },
