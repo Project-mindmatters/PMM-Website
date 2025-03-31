@@ -368,6 +368,64 @@ function create404Page() {
   console.log('Created custom 404 page at /404.html');
 }
 
+// Function to fix all navigation links in all HTML files
+function fixAllNavigationLinks() {
+  const publicDir = 'public';
+  const pagesDir = path.join(publicDir, 'pages');
+  
+  // Get all HTML files
+  const htmlFiles = fs.readdirSync(pagesDir)
+    .filter(file => file.endsWith('.html'))
+    .map(file => path.join(pagesDir, file));
+  
+  // Also fix the 404 page
+  if (fs.existsSync(path.join(publicDir, '404.html'))) {
+    htmlFiles.push(path.join(publicDir, '404.html'));
+  }
+  
+  // Process each HTML file
+  htmlFiles.forEach(filePath => {
+    try {
+      let content = fs.readFileSync(filePath, 'utf8');
+      const originalContent = content;
+      
+      // Fix navigation links in header
+      content = content.replace(/<nav>[\s\S]*?<\/nav>/gi, function(match) {
+        return match
+          .replace(/href="index\.html"/g, 'href="/"')
+          .replace(/href="about\.html"/g, 'href="/about.html"')
+          .replace(/href="blog\.html"/g, 'href="/blog.html"')
+          .replace(/href="contact\.html"/g, 'href="/contact.html"')
+          .replace(/href="events\.html"/g, 'href="/events.html"')
+          .replace(/href="team\.html"/g, 'href="/team.html"')
+          .replace(/href="testimonials\.html"/g, 'href="/testimonials.html"');
+      });
+      
+      // Fix navigation links in footer
+      content = content.replace(/<div class="footer-links">[\s\S]*?<\/div>/gi, function(match) {
+        return match
+          .replace(/href="index\.html"/g, 'href="/"')
+          .replace(/href="about\.html"/g, 'href="/about.html"')
+          .replace(/href="blog\.html"/g, 'href="/blog.html"')
+          .replace(/href="contact\.html"/g, 'href="/contact.html"')
+          .replace(/href="events\.html"/g, 'href="/events.html"')
+          .replace(/href="team\.html"/g, 'href="/team.html"')
+          .replace(/href="testimonials\.html"/g, 'href="/testimonials.html"');
+      });
+      
+      // Only write if changes were made
+      if (content !== originalContent) {
+        fs.writeFileSync(filePath, content);
+        console.log(`Fixed navigation links in: ${filePath}`);
+      }
+    } catch (error) {
+      console.error(`Error fixing navigation links in ${filePath}:`, error);
+    }
+  });
+  
+  console.log('All navigation links fixed.');
+}
+
 // Create public directory if it doesn't exist
 if (!fs.existsSync('public')) {
   fs.mkdirSync('public', { recursive: true });
@@ -509,5 +567,10 @@ if (!fs.existsSync(debugDir)) {
 }
 fs.writeFileSync(path.join(debugDir, 'index.html'), debugIndexContent);
 console.log('Created debug index page at /debug/index.html');
+
+// Add this call before the end of the script
+console.log('\n--- RUNNING FINAL LINK FIXES ---');
+fixAllNavigationLinks();
+console.log('--- LINK FIXES COMPLETE ---\n');
 
 console.log('Build completed successfully!'); 
