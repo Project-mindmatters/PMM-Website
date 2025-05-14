@@ -182,7 +182,6 @@ function copyDir(source, target) {
 
 // Function to create a site map file
 function createSiteMap() {
-  const baseUrl = 'https://project-mind-matters.vercel.app';
   const pages = [
     { path: '/', name: 'Home' },
     { path: '/about.html', name: 'About' },
