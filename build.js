@@ -1,8 +1,19 @@
 const fs = require('fs');
 const path = require('path');
 
-// Function to copy a file
+// Function to copy a file, with option to skip certain files
 function copyFile(source, target) {
+  // Only allow favicon.ico in images and public root
+  const allowedFavicons = ['favicon.ico'];
+  const isFavicon =
+    path.basename(source).startsWith('favicon') &&
+    (source.includes('images') || target.includes('public'));
+  if (isFavicon && !allowedFavicons.includes(path.basename(source))) {
+    // Skip copying redundant favicon files
+    return;
+  }
+  // Skip .DS_Store
+  if (path.basename(source) === '.DS_Store') return;
   const targetDir = path.dirname(target);
   if (!fs.existsSync(targetDir)) {
     fs.mkdirSync(targetDir, { recursive: true });
@@ -187,7 +198,6 @@ function createSiteMap() {
     { path: '/about.html', name: 'About' },
     { path: '/blog.html', name: 'Blog' },
     { path: '/contact.html', name: 'Contact' },
-    { path: '/events.html', name: 'Events' },
     { path: '/team.html', name: 'Team' },
     { path: '/testimonials.html', name: 'Testimonials' }
   ];
@@ -260,7 +270,6 @@ function create404Page() {
     { path: '/about.html', name: 'About Us' },
     { path: '/blog.html', name: 'Blog' },
     { path: '/contact.html', name: 'Contact' },
-    { path: '/events.html', name: 'Events' },
     { path: '/team.html', name: 'Our Team' },
     { path: '/testimonials.html', name: 'Testimonials' }
   ];
@@ -395,7 +404,6 @@ function fixAllNavigationLinks() {
           .replace(/href="about\.html"/g, 'href="/about.html"')
           .replace(/href="blog\.html"/g, 'href="/blog.html"')
           .replace(/href="contact\.html"/g, 'href="/contact.html"')
-          .replace(/href="events\.html"/g, 'href="/events.html"')
           .replace(/href="team\.html"/g, 'href="/team.html"')
           .replace(/href="testimonials\.html"/g, 'href="/testimonials.html"');
       });
@@ -407,7 +415,6 @@ function fixAllNavigationLinks() {
           .replace(/href="about\.html"/g, 'href="/about.html"')
           .replace(/href="blog\.html"/g, 'href="/blog.html"')
           .replace(/href="contact\.html"/g, 'href="/contact.html"')
-          .replace(/href="events\.html"/g, 'href="/events.html"')
           .replace(/href="team\.html"/g, 'href="/team.html"')
           .replace(/href="testimonials\.html"/g, 'href="/testimonials.html"');
       });
@@ -571,5 +578,42 @@ console.log('Created debug index page at /debug/index.html');
 console.log('\n--- RUNNING FINAL LINK FIXES ---');
 fixAllNavigationLinks();
 console.log('--- LINK FIXES COMPLETE ---\n');
+
+// After build, clean up redundant files
+function cleanRedundantFiles() {
+  // Remove redundant favicons from public/
+  const redundantFavicons = [
+    'public/favicon.png',
+    'public/favicon_pmm.png',
+    'public/images/favicon.png',
+    'public/images/favicon_pmm.png',
+    'public/images/favicon.ico', // Only keep root public/favicon.ico
+  ];
+  redundantFavicons.forEach(f => {
+    if (fs.existsSync(f)) {
+      fs.unlinkSync(f);
+      console.log(`Removed redundant: ${f}`);
+    }
+  });
+  // Remove .DS_Store
+  if (fs.existsSync('.DS_Store')) {
+    fs.unlinkSync('.DS_Store');
+    console.log('Removed .DS_Store');
+  }
+  // Remove docs/CNAME if present and same as root CNAME
+  const rootCname = 'CNAME';
+  const docsCname = 'docs/CNAME';
+  if (fs.existsSync(rootCname) && fs.existsSync(docsCname)) {
+    const rootContent = fs.readFileSync(rootCname, 'utf8').trim();
+    const docsContent = fs.readFileSync(docsCname, 'utf8').trim();
+    if (rootContent === docsContent) {
+      fs.unlinkSync(docsCname);
+      console.log('Removed redundant docs/CNAME');
+    }
+  }
+}
+
+// At the end of the build process, clean up redundant files
+cleanRedundantFiles();
 
 console.log('Build completed successfully!'); 
