@@ -12,9 +12,9 @@
 /* Contact Banner Styles */
 #contact-banner {
     background-color: var(--light-green);
-    padding: 4rem 0;
+    padding: 3rem 0;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     position: relative;
     overflow: hidden;
 }
@@ -51,12 +51,20 @@
     margin: 0 auto;
 }
 
-/* Contact Info Cards */
-.contact-info-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* Contact Section */
+.contact-flex-container {
+    display: flex;
     gap: 2rem;
-    margin-bottom: 4rem;
+    margin: 1rem 0;
+    min-height: 600px;
+}
+
+.contact-info-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: space-between;
 }
 
 .contact-info-card {
@@ -68,12 +76,15 @@
     transition: all 0.3s ease;
     opacity: 0;
     transform: translateY(20px);
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 100%;
-    min-height: 220px;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(93, 203, 133, 0.15);
 }
 
 .contact-info-card.appear {
@@ -119,12 +130,13 @@
     justify-content: center;
 }
 
-/* Contact Form and Map Section */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 4rem;
+/* Form Container */
+.form-container {
+    flex: 2;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .form-container {
@@ -509,12 +521,20 @@ body.dark-theme #connect-social {
 
 /* Media Queries */
 @media (max-width: 992px) {
-    .contact-container {
-        grid-template-columns: 1fr;
+    .contact-flex-container {
+        flex-direction: column;
     }
     
-    .map-container {
-        height: 400px;
+    .contact-info-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-info-card {
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
     }
     
     .connect-container {
