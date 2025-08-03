@@ -18,25 +18,34 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <style>
-      .team-section-divider {
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(
-          to right,
-          transparent,
-          var(--primary-green),
-          transparent
-        );
-        margin: 2rem auto 4rem;
-      }
-      .team-section {
-        margin-bottom: 3rem;
-      }
-      .team-section-header {
-        margin-bottom: 2rem;
-      }
-    </style>
+         <style>
+       .team-section-divider {
+         width: 100%;
+         height: 2px;
+         background: linear-gradient(
+           to right,
+           transparent,
+           var(--primary-green),
+           transparent
+         );
+         margin: 2rem auto 4rem;
+       }
+       .team-section {
+         margin-bottom: 3rem;
+       }
+       .team-section-header {
+         margin-bottom: 2rem;
+       }
+               .image-placeholder {
+          aspect-ratio: 4/5;
+          overflow: hidden;
+        }
+       .image-placeholder img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+       }
+     </style>
   </head>
 
   <body>
@@ -77,289 +86,253 @@
 
     <!-- Team Sections Container -->
     <div class="container">
-      <!-- Founder Section -->
-      <section id="founder-team" class="team-section">
-        <div class="team-section-header">
-          <h3>Founder</h3>
-          <p>The visionary who started our mission to make mental health accessible to all</p>
-        </div>
-        <div class="team-grid">
-          <!-- Founder -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/smrithi-rannore.jpg" alt="Smrithi Rannore" />
-              </div>
-              <div class="team-social">
-                <a href="https://www.linkedin.com/in/smrithirannore/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/project__mindmatters/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:smrithirannore@gmail.com"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Smrithi Rannore</h4>
-              <span class="team-position">Founder</span>
-              <p>
-                Smrithi Rannore is the founder of Project Mind Matters, driven by a visionary mindset to create a mentally healthy and aware community. Alongside her work in mental health advocacy, she is an author and a dedicated social impact leader, passionate about driving change through education, policy, and community engagement.
-              </p>
-            </div>
-          </div>
+             <!-- Founder Team -->
+       <section id="founder-team" class="team-section">
+         <div class="team-section-header">
+           <h3>Founder</h3>
+           <p>The visionary who started Project Mind Matters and continues to inspire our mission</p>
+         </div>
+                   <div class="team-grid" style="justify-content: center; display: flex;">
+                       <!-- Founder Member -->
+                           <div class="team-card fade-in" style="margin: 0 auto; max-width: 400px; margin-top: 4rem;">
+             <div class="team-image">
+               <div class="image-placeholder">
+                 <img src="../images/smrithi-rannore.jpg" alt="Smrithi Rannore" />
+               </div>
+                               <div class="team-social">
+                  <a href="mailto:smrithirannore@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+             </div>
+             <div class="team-info">
+               <h4>Smrithi Rannore</h4>
+               <span class="team-position">Founder</span>
+               <p>
+                 Smrithi Rannore is the founder of Project Mind Matters, driven by a visionary mindset to create a mentally healthy and aware community. Alongside her work in mental health advocacy, she is an author and a dedicated social impact leader, passionate about driving change through education, policy, and community engagement.
+               </p>
+             </div>
+           </div>
         </div>
       </section>
 
       <div class="team-section-divider"></div>
 
-      <!-- Leadership Team -->
-      <section id="leadership-team" class="team-section">
-        <div class="team-section-header">
-          <h3>Leadership Team</h3>
-          <p>The visionaries guiding our mission and strategic direction</p>
-        </div>
-        <div class="team-grid">
-          <!-- Team Member 1 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team1.jpg" alt="Dr. Emily Chen" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Dr. Emily Chen</h4>
-              <span class="team-position">Founder & Executive Director</span>
-              <p>
-                Clinical Psychologist with over 15 years of experience in
-                community mental health initiatives.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 2 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team2.jpg" alt="Dr. James Wilson" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Dr. James Wilson</h4>
-              <span class="team-position">Medical Director</span>
-              <p>
-                Psychiatrist specializing in adolescent mental health and
-                innovative treatment approaches.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 3 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team3.jpg" alt="Sarah Johnson" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Sarah Johnson</h4>
-              <span class="team-position">Operations Director</span>
-              <p>
-                Former healthcare administrator with expertise in scaling
-                community-based programs.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+             <!-- Leadership Team -->
+       <section id="leadership-team" class="team-section">
+         <div class="team-section-header">
+           <h3>Leadership Team</h3>
+           <p>The visionaries guiding our mission and strategic direction</p>
+         </div>
+         <div class="team-grid">
+           <!-- TBA Placeholder -->
+           <div class="team-card fade-in">
+             <div class="team-image">
+               <div class="image-placeholder">
+                 <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f5f5f5; color: #666; font-size: 1.2rem; font-weight: 500;">
+                   TBA
+                 </div>
+               </div>
+             </div>
+             <div class="team-info">
+               <h4>Leadership Team</h4>
+               <span class="team-position">To Be Announced</span>
+               <p>
+                 Our leadership team is currently being assembled. We're looking for passionate individuals who share our vision for mental health advocacy and community wellness.
+               </p>
+             </div>
+           </div>
+         </div>
+       </section>
 
       <div class="team-section-divider"></div>
 
-      <!-- Clinical Team -->
-      <section id="clinical-team" class="team-section">
-        <div class="team-section-header">
-          <h3>Clinical Team</h3>
-          <p>
-            Our licensed professionals providing expert mental health services
-          </p>
-        </div>
-        <div class="team-grid">
-          <!-- Team Member 4 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team4.jpg" alt="Dr. Michael Torres" />
+             <!-- Clinical Team -->
+       <section id="clinical-team" class="team-section">
+         <div class="team-section-header">
+           <h3>Clinical Team</h3>
+           <p>
+             Our licensed professionals providing expert mental health services
+           </p>
+         </div>
+         <div class="team-grid">
+                       <!-- Iris Lewis -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                                     <img src="../images/iris - lewis.jpg" alt="Iris Lewis" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:dsilva.iris@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
               </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
+              <div class="team-info">
+                <h4>Iris Lewis</h4>
+                <span class="team-position">Psychological Professional</span>
+                <p>
+                  Iris is a caring, understanding, patient and friendly person. Her doors are always open to everyone. She uses dot mandala as an art therapy to unleash emotional stresses.
+                </p>
               </div>
             </div>
-            <div class="team-info">
-              <h4>Dr. Michael Torres</h4>
-              <span class="team-position">Senior Therapist</span>
-              <p>
-                Specializes in cognitive behavioral therapy and anxiety
-                management techniques.
-              </p>
+
+            <!-- Shruti Doss -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/shruti-doss.jpg" alt="Shruti Doss" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:Shruti.doss16@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Shruti Doss</h4>
+                <span class="team-position">Psychologist / Therapist</span>
+                <p>
+                  Shruti Doss is a dedicated mental health practitioner. She actively supports initiatives while managing her own independent practice, providing therapy and mental health interventions to individuals in need.
+                </p>
+              </div>
+            </div>
+
+            <!-- Radhika Baliga -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/Radhika Baliga.jpeg" alt="Radhika Baliga" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:Radhika.r.baliga@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Radhika Baliga</h4>
+                <span class="team-position">Counselling Psychologist Consultant</span>
+                <p>
+                  Radhika is a psychoanalytically informed counselling psychologist with training in person centred, psychodynamic and cognitive behavioural therapy. She is committed to awareness and support for mental health for all. She also believes in 'mansana in corpore sano'.
+                </p>
+              </div>
+            </div>
+
+            <!-- Varsha Sarwade -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/Varsha Sarwade.jpeg" alt="Varsha Sarwade" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:varsharajiv@yahoo.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Varsha Sarwade</h4>
+                <span class="team-position">Counselling Psychologist</span>
+                <p>
+                  Varsha Sarwade is a certified Psychological Counsellor with an experience of 12 years in dealing with a wide range of issues such as stress, anxiety, relationship and adjustment issues, parenting problems and more. Her experience includes working as a counsellor at an infertility center, a school counsellor and currently as a freelance counsellor.
+                </p>
+              </div>
+            </div>
+
+            <!-- Praagnya Aravindaksha -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/praagnya-aravindaksha.jpg" alt="Praagnya Aravindaksha" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:praagnyaa1999@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Praagnya Aravindaksha</h4>
+                <span class="team-position">Psycho-Oncologist</span>
+                <p>
+                  Praagnya, a compassionate psycho-oncologist, believes in the healing power of love and kindness. With deep empathy, she supports all her patients through their toughest times. Her dedication creates a space for emotional and physical well-being.
+                </p>
+              </div>
+            </div>
+         </div>
+       </section>
+
+              <!-- Community Outreach Team -->
+                 <section id="outreach-team" class="team-section">
+           <div class="team-section-header">
+             <h3>Community Outreach Team</h3>
+             <p>
+               Connecting with our community and spreading awareness about mental
+               health
+             </p>
+           </div>
+           <div class="team-grid" style="justify-content: center;">
+                        <!-- Pranathi Harihar -->
+             <div class="team-card fade-in">
+               <div class="team-image">
+                 <div class="image-placeholder">
+                   <img src="../images/pranathi harihar.jpg" alt="Pranathi Harihar" />
+                 </div>
+                                                                   <div class="team-social">
+                   <a href="https://www.linkedin.com/in/pranathiharihar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fab fa-linkedin"></i></a>
+                   <a href="mailto:pranathi.harihar@gmail.com"><i class="fas fa-envelope"></i></a>
+                 </div>
+               </div>
+               <div class="team-info">
+                 <h4>Pranathi Harihar</h4>
+                 <span class="team-position">Psycho-Oncologist</span>
+                 <p>
+                   Pranathi, a compassionate psychologist, weaves warmth and healing into every life she touches. With a heart full of empathy and a deep commitment to her clients, she creates a safe space where stories are heard, struggles are honored, and growth is nurtured.
+                 </p>
+               </div>
+             </div>
+          </div>
+        </section>
+
+        <div class="team-section-divider"></div>
+
+        <!-- Technical Team -->
+        <section id="technical-team" class="team-section">
+          <div class="team-section-header">
+            <h3>Technical Team</h3>
+            <p>
+              Our technology experts building innovative solutions for mental health
+            </p>
+          </div>
+          <div class="team-grid">
+            <!-- Kashyapa Datta Dhondu -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/kashyapa-dhondu.jpg" alt="Kashyapa Datta Dhondu" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:dhondukashyap@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Kashyapa Datta Dhondu</h4>
+                <span class="team-position">Technical Team</span>
+                <p>
+                  Kashyap is friendly and approachable. He excels at problem solving, thinks out of the box and is a great team worker who loves building things that have a real world impact.
+                </p>
+              </div>
+            </div>
+
+            <!-- Sumant Boppana -->
+            <div class="team-card fade-in">
+              <div class="team-image">
+                <div class="image-placeholder">
+                  <img src="../images/sumant-boppana.jpg" alt="Sumant Boppana" />
+                </div>
+                <div class="team-social">
+                  <a href="mailto:sumantboppana04@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+              </div>
+              <div class="team-info">
+                <h4>Sumant Boppana</h4>
+                <span class="team-position">Technical Team</span>
+                <p>
+                  Sumant is driven, focused, and resilient. He thrives under pressure and solves problems with precision. His dedication and work ethic set him apart.
+                </p>
+              </div>
             </div>
           </div>
-
-          <!-- Team Member 5 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team5.jpg" alt="Dr. Aisha Patel" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Dr. Aisha Patel</h4>
-              <span class="team-position">Child Psychologist</span>
-              <p>
-                Expert in early intervention strategies and family therapy
-                approaches.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 6 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team6.jpg" alt="Robert Kim" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Robert Kim, LCSW</h4>
-              <span class="team-position">Group Therapy Specialist</span>
-              <p>
-                Facilitates support groups with a focus on building community
-                and resilience.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 7 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team7.jpg" alt="Dr. Lisa Martinez" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Dr. Lisa Martinez</h4>
-              <span class="team-position">Trauma Specialist</span>
-              <p>
-                Experienced in evidence-based trauma recovery and resilience
-                building approaches.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="team-section-divider"></div>
-
-      <!-- Community Outreach Team -->
-      <section id="outreach-team" class="team-section">
-        <div class="team-section-header">
-          <h3>Community Outreach Team</h3>
-          <p>
-            Connecting with our community and spreading awareness about mental
-            health
-          </p>
-        </div>
-        <div class="team-grid">
-          <!-- Team Member 8 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team8.jpg" alt="David Okafor" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>David Okafor</h4>
-              <span class="team-position">Outreach Coordinator</span>
-              <p>
-                Develops partnerships with local organizations and coordinates
-                community workshops.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 9 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team9.jpg" alt="Sophia Garcia" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Sophia Garcia</h4>
-              <span class="team-position">Education Specialist</span>
-              <p>
-                Creates educational programs and workshops for schools and
-                community organizations.
-              </p>
-            </div>
-          </div>
-
-          <!-- Team Member 10 -->
-          <div class="team-card fade-in">
-            <div class="team-image">
-              <div class="image-placeholder">
-                <img src="../images/team10.jpg" alt="Marcus Lee" />
-              </div>
-              <div class="team-social">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fas fa-envelope"></i></a>
-              </div>
-            </div>
-            <div class="team-info">
-              <h4>Marcus Lee</h4>
-              <span class="team-position">Volunteer Coordinator</span>
-              <p>
-                Recruits, trains, and manages our dedicated team of community
-                volunteers.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </div>
 
     <footer>
