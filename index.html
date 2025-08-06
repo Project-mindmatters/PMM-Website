@@ -1,39 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Mind Matters</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <meta http-equiv="refresh" content="0;url=/pages/index.html">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            padding: 50px;
-            line-height: 1.6;
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Main CSS file -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="css/index-styles.css" />
+    <!-- Fonts and Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo-container">
+          <div class="image-placeholder">
+            <!-- Logo image placeholder -->
+            <img
+              src="images/logo.png"
+              alt="Project Mind Matters Logo"
+              class="logo"
+            />
+          </div>
+          <h1 class="site-title">Project Mind Matters</h1>
+        </div>
+        <nav>
+          <a href="/" class="active">Home</a>
+          <a href="/about">About</a>
+          <a href="/blogs">Blogs</a>
+          <a href="/team">Team</a>
+          <a href="/testimonials">Testimonials</a>
+          <a href="/contactus">ContactUs</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Home Video Section -->
+    <section
+      class="home-video"
+      style="
+        background: #f3fbf1;
+        padding: 1.5rem 0 0.5rem 0;
+        text-align: center;
+      "
+    >
+      <div class="container">
+        <video
+          controls
+          style="
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+          "
+        >
+          <source src="images/MM video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- Home Banner -->
+    <section class="home-banner">
+      <div class="container">
+        <div class="section-title">
+          <h2>Empowering Minds, Transforming Lives</h2>
+          <p>
+            Supporting mental wellness through education, community, and
+            compassionate care
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero Section with Slideshow -->
+    <section id="slideshow" class="page-section">
+      <div class="container">
+        <div class="slideshow-container">
+          <div class="slide fade" style="display: block">
+            <img src="images/1.jpg" alt="Slide 1" />
+            <div class="slide-caption">
+              Empowering Minds, Transforming Lives
+            </div>
+          </div>
+
+          <div class="slide fade" style="display: none">
+            <img src="images/2.jpg" alt="Slide 2" />
+            <div class="slide-caption">Building Better Futures Together</div>
+          </div>
+
+          <div class="slide fade" style="display: none">
+            <img src="images/3.jpg" alt="Slide 3" />
+            <div class="slide-caption">Innovation in Mental Health</div>
+          </div>
+
+          <div class="slide fade" style="display: none">
+            <img src="images/4.jpg" alt="Slide 4" />
+            <div class="slide-caption">Supporting Your Journey</div>
+          </div>
+
+          <div class="slide fade" style="display: none">
+            <img src="images/5.jpg" alt="Slide 5" />
+            <div class="slide-caption">Creating Positive Change</div>
+          </div>
+
+          <div class="slide fade" style="display: none">
+            <img src="images/PXL_20250612_074115628.MP.jpg" alt="Slide 6" />
+            <div class="slide-caption">Celebrating Growth & Community</div>
+          </div>
+          <div class="slide fade" style="display: none">
+            <img src="images/PXL_20250612_073818900.MP.jpg" alt="Slide 7" />
+            <div class="slide-caption">Inspiring New Perspectives</div>
+          </div>
+          <div class="slide fade" style="display: none">
+            <img src="images/IMG-20250323-WA0064.jpg" alt="Slide 8" />
+            <div class="slide-caption">Empowering Every Generation</div>
+          </div>
+          <div class="slide fade" style="display: none">
+            <img src="images/IMG-20250102-WA0045.jpg" alt="Slide 9" />
+            <div class="slide-caption">Learning, Sharing, Growing</div>
+          </div>
+          <div class="slide fade" style="display: none">
+            <img src="images/IMG-20240909-WA0064.jpg" alt="Slide 10" />
+            <div class="slide-caption">Together for Wellness</div>
+          </div>
+          <div class="slide fade" style="display: none">
+            <img src="images/IMG-20240909-WA0056.jpg" alt="Slide 11" />
+            <div class="slide-caption">Building Brighter Futures</div>
+          </div>
+
+          <a class="prev" onclick="changeSlide(-1)">❮</a>
+          <a class="next" onclick="changeSlide(1)">❯</a>
+        </div>
+
+        <div class="dot-container">
+          <span class="dot active-dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+          <span class="dot" onclick="currentSlide(7)"></span>
+          <span class="dot" onclick="currentSlide(8)"></span>
+          <span class="dot" onclick="currentSlide(9)"></span>
+          <span class="dot" onclick="currentSlide(10)"></span>
+          <span class="dot" onclick="currentSlide(11)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="page-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>What We Offer</h2>
+          <p>Our comprehensive approach to mental wellness</p>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h3>Expert Support</h3>
+            <p>
+              Professional guidance from certified mental health experts who
+              understand your unique needs and challenges.
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-hands-helping"></i>
+            </div>
+            <h3>Community Focus</h3>
+            <p>
+              Building stronger connections through shared experiences and
+              fostering a supportive environment for growth.
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Innovative Approach</h3>
+            <p>
+              Modern solutions for contemporary mental health challenges using
+              evidence-based practices.
+            </p>
+          </div>
+          <div class="feature-card fade-in">
+            <div class="feature-icon">
+              <i class="fas fa-globe-asia"></i>
+            </div>
+            <h3>Culturally Rooted Support</h3>
+            <p>Culturally rooted support and guidance</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Project Mind Matters</h3>
+            <p>
+              Empowering individuals and communities through mental wellness
+              education, support, and resources.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <div class="footer-links">
+              <a href="/">Home</a>
+              <a href="/about">About</a>
+              <a href="/blogs">Blogs</a>
+              <a href="/team">Team</a>
+              <a href="/testimonials">Testimonials</a>
+              <a href="/contactus">ContactUs</a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Connect With Us</h3>
+            <div class="footer-social">
+              <a href="mailto:officialmindmatters@gmail.com"><i class="fas fa-envelope"></i></a>
+              <a href="https://www.instagram.com/project__mindmatters/" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.linkedin.com/company/projectmindmatters/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2023 Project Mind Matters. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <div class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+      // Navigation fix to ensure proper redirection
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fix navigation links to ensure they work properly
+        document.querySelectorAll("a").forEach((link) => {
+          // Skip external links or links with absolute URLs
+          if (
+            link.href.startsWith("http") &&
+            !link.href.includes(window.location.hostname)
+          ) {
+            return;
+          }
+
+          // Handle index.html links
+          if (
+            link.href.endsWith("/index.html") ||
+            link.href === window.location.origin + "/"
+          ) {
+            link.href = "/";
+          }
+        });
+
+        // Fix for back button navigation
+        window.addEventListener("pageshow", function (event) {
+          if (event.persisted) {
+            // Page was loaded from cache (back button)
+            window.location.reload();
+          }
+        });
+      });
+
+      // Wait for the DOM to be fully loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        // Slideshow
+        let slideIndex = 1;
+        showSlide(slideIndex);
+
+        function changeSlide(n) {
+          showSlide((slideIndex += n));
         }
-        h1 {
-            color: #9c27b0;
-            margin-bottom: 20px;
+
+        function currentSlide(n) {
+          showSlide((slideIndex = n));
         }
-        p {
-            margin: 10px 0;
-            font-size: 18px;
+
+        function showSlide(n) {
+          let slides = document.getElementsByClassName("slide");
+          let dots = document.getElementsByClassName("dot");
+
+          if (n > slides.length) {
+            slideIndex = 1;
+          }
+          if (n < 1) {
+            slideIndex = slides.length;
+          }
+
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+
+          for (let i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active-dot", "");
+          }
+
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " active-dot";
         }
-        a {
-            color: #9c27b0;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-    <h1>Project Mind Matters</h1>
-    <p>Redirecting to homepage...</p>
-    <p>If you are not redirected automatically, <a href="/pages/index.html">click here</a>.</p>
-</body>
+
+        // Auto Slideshow
+        setInterval(function () {
+          changeSlide(1);
+        }, 5000);
+
+        // Fade in animation for elements
+        const fadeElements = document.querySelectorAll(".fade-in");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("appear");
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        fadeElements.forEach((element) => {
+          observer.observe(element);
+        });
+
+        // Scroll To Top
+        const scrollTopBtn = document.getElementById("scrollTop");
+
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add("active");
+          } else {
+            scrollTopBtn.classList.remove("active");
+          }
+        });
+
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
 </html> 

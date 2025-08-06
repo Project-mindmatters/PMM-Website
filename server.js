@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname)));
 
 // Create Nodemailer transporter
-const transporter = nodemailer.createTransporter({
+const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER || 'officialmindmatters@gmail.com',
@@ -30,12 +30,24 @@ app.post('/api/contact', async (req, res) => {
   try {
     const { name, email, subject, message, newsletter } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !subject || !message) {
-      return res.status(400).json({ 
-        success: false, 
-        message: 'Please fill in all required fields' 
-      });
+    // Input validation
+    if (!name?.trim()) {
+      return res.status(400).json({ success: false, message: 'Name is required' });
+    }
+    if (!email?.trim()) {
+      return res.status(400).json({ success: false, message: 'Email is required' });
+    }
+    if (!subject?.trim()) {
+      return res.status(400).json({ success: false, message: 'Subject is required' });
+    }
+    if (!message?.trim()) {
+      return res.status(400).json({ success: false, message: 'Message is required' });
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ success: false, message: 'Invalid email format' });
     }
 
     // Email content
@@ -136,8 +148,8 @@ app.get('/about', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'about.html'));
 });
 
-app.get('/blog', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'blog.html'));
+app.get('/blogs', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'blogs.html'));
 });
 
 app.get('/team', (req, res) => {
@@ -148,8 +160,12 @@ app.get('/testimonials', (req, res) => {
   res.sendFile(path.join(__dirname, 'pages', 'testimonials.html'));
 });
 
-app.get('/contact', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'contact.html'));
+app.get('/contactus', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'contactus.html'));
+});
+
+app.get('/home', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages', 'home.html'));
 });
 
 // Start server
